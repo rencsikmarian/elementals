@@ -1,0 +1,6 @@
+{
+  "app": {
+    "css": "auto/app.css",
+    "js": "auto/app.js"
+  }
+}
