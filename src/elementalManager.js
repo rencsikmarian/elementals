@@ -329,7 +329,7 @@ function initElemental(tag, elementals, elemental, id) {
  */
 function initElementals(elementalsTag, elementalsToInitialise) {
     let config = parseElemental(elementalsTag),
-        newConfig = config.map(function(elemental, index) {
+        newConfig = config.map(function (elemental, index) {
             return initElemental(elementalsTag, elementalsToInitialise, elemental, elemental.id || String(index));
         }),
         newJson = JSON.stringify(newConfig);

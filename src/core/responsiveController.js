@@ -34,7 +34,6 @@ export default Elemental("responsiveController", function (name, settings) {
      * @returns {boolean}
      */
     function isViewportActive() {
-        let viewport = Viewport.getViewport();
         if (void 0 === settings.isActiveOn) return false;
         return -1 !== settings.isActiveOn.indexOf(viewport)
     }

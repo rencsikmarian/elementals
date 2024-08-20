@@ -9,6 +9,6 @@ ElementalManager.initElementals({
     "responsiveTest": responsiveTest,
     "multipleTest1": multipleTest1,
     "multipleTest2": multipleTest2
-});
+}, document);
 
-Install()
+Install();

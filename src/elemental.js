@@ -83,7 +83,7 @@ export default function (name, factory, defaults) {
         let mapped = ([elemental]).map(function (elem) {
             let elemental = createElementalObject(name, elem),
                 settings = {...defaults, ...settings};
-
+            
             try {
                 let instance = factory(elemental, settings) || {};
                 Collection.add(elem, name, instance);

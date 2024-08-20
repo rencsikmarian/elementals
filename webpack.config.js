@@ -1,11 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const SriPlugin = require('webpack-subresource-integrity');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
-const ExtractCssChunksPlugin = require('extract-css-chunks-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const { SubresourceIntegrityPlugin } = require('webpack-subresource-integrity');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "production",
@@ -19,15 +18,10 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new TerserJSPlugin({
-                sourceMap: true,
+            new TerserPlugin({
                 extractComments: '/@extract/i'
             }),
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorPluginOptions: {
-                    preset: ['default', {discardComments: {removeAll: true}}],
-                }
-            })
+            new CssMinimizerPlugin()
         ]
     },
     module: {
@@ -53,7 +47,7 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    ExtractCssChunksPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -61,8 +55,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HashedModuleIdsPlugin(),
-        new SriPlugin({
+        new webpack.ids.HashedModuleIdsPlugin(),
+        new SubresourceIntegrityPlugin({
             hashFuncNames: ['sha256', 'sha384'],
             enabled: true
         }),
@@ -72,11 +66,8 @@ module.exports = {
             prettyPrint: true,
             path: path.resolve(__dirname, '.')
         }),
-        new ExtractCssChunksPlugin({
+        new MiniCssExtractPlugin({
             filename: '[name].css'
-        }),
-        new FixStyleOnlyEntriesPlugin({
-            silent: true
         })
     ]
 };

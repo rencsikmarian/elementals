@@ -4,9 +4,10 @@ export default Object(Elemental)("responsiveTest", function (elemental, settings
     function setContent(content) {
         elemental.el.innerHTML = content
     }
+    setContent("initialize");
+    console.log("initialize");
 
-    return console.log("initialize"),
-        setContent("initialize"), {
+    return {
         resume: function () {
             setContent("resumed")
             console.log("resumed")
