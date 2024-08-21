@@ -235,7 +235,7 @@ export default Elemental("panel", function (elemental, settings) {
         contextPageContentElement = context.querySelector(".js-panel-content");
         contextPageTitleElement = context.querySelector(".js-panel-title");
 
-        if (settings.indentedContent) setContent(settings.indentedContent) else setContent(settings.content)
+        if (settings.indentedContent) setContent(settings.indentedContent); else setContent(settings.content);
         if (settings.direction) setDirection(settings.direction);
         if (settings.title) setTitle(settings.title);
         if (settings.footerContent) setFooterContent(settings.footerContent);
