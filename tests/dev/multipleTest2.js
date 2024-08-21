@@ -1,5 +1,4 @@
-import {Elemental} from "../../index";
-import * as Storage from "../../src/core/storage";
+import {Elemental} from "../../index.js";
 
 export default Object(Elemental)("multipleTest2", function (elemental, settings) {
     elemental.el.querySelector(".content-2").innerHTML = "test2";

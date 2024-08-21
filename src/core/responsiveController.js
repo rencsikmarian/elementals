@@ -1,10 +1,10 @@
-import {default as Elemental} from "../elemental";
-import * as ElementalEvents from "./elementalEvents";
-import * as Events from "./events";
-import * as Storage from "./storage";
-import * as Viewport from "./viewport";
+import {default as Elemental} from "../elemental.js";
+import * as ElementalEvents from "./elementalEvents.js";
+import * as Events from "./events.js";
+import * as Storage from "./storage.js";
+import * as Viewport from "./viewport.js";
 
-export default Elemental("responsiveController", function (name, settings) {
+const ResponsiveControllerElemental = Elemental("responsiveController", function (name, settings) {
     var elemental,
         subscription,
         paused = false;
@@ -34,6 +34,7 @@ export default Elemental("responsiveController", function (name, settings) {
      * @returns {boolean}
      */
     function isViewportActive() {
+        let viewport = Viewport.getViewport();
         if (void 0 === settings.isActiveOn) return false;
         return -1 !== settings.isActiveOn.indexOf(viewport)
     }
@@ -89,3 +90,5 @@ export default Elemental("responsiveController", function (name, settings) {
     Events.subscribeOnce(name.el, ElementalEvents.ELEMENTAL_DESTROYED_EVENT, elementalDestroyHandler);
     responsiveEventHandler();
 });
+
+export default ResponsiveControllerElemental;

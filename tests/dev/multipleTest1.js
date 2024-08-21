@@ -1,4 +1,4 @@
-import {Elemental} from "../../index";
+import {Elemental} from "../../index.js";
 
 export default Object(Elemental)("multipleTest1", function (elemental, settings) {
     elemental.el.querySelector(".content-1").innerHTML = "test1";

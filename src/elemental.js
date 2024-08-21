@@ -1,7 +1,7 @@
 import * as Events from './core/events.js';
 import * as Collection from './core/collection.js';
-import * as Storage from './core/storage';
-import * as DOMEvents from './core/DOMEvents';
+import * as Storage from './core/storage.js';
+import * as DOMEvents from './core/DOMEvents.js';
 
 /**
  * Check the arguments of the elemental we are going to initialize
@@ -82,10 +82,9 @@ export default function (name, factory, defaults) {
     return function (elemental, settings) {
         let mapped = ([elemental]).map(function (elem) {
             let elemental = createElementalObject(name, elem),
-                settings = {...defaults, ...settings};
-            
+                config  = {...defaults, ...settings};
             try {
-                let instance = factory(elemental, settings) || {};
+                let instance = factory(elemental, config) || {};
                 Collection.add(elem, name, instance);
                 if (!instance.destroy) instance.destroy = elemental.destroy
                 return instance

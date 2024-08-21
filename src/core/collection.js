@@ -1,4 +1,4 @@
-import * as Storage from './storage';
+import * as Storage from './storage.js';
 
 /**
  * Gets an array from the storage namespace

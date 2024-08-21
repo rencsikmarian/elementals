@@ -1,6 +1,6 @@
-import {Elemental} from "../../index";
+import { Elemental } from "../../index.js";
 
-export default Object(Elemental)("responsiveTest", function (elemental, settings) {
+const responsiveTest = Object(Elemental)("responsiveTest", function (elemental, settings) {
     function setContent(content) {
         elemental.el.innerHTML = content
     }
@@ -18,3 +18,5 @@ export default Object(Elemental)("responsiveTest", function (elemental, settings
         }
     }
 });
+
+export default responsiveTest;

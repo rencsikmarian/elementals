@@ -1,8 +1,8 @@
-import * as Collection from './core/collection';
-import * as Events from './core/events';
-import * as toolkit from './core/toolkit';
-import {default as ResponsiveControllerElemental} from './core/responsiveController';
-import * as elementalEvents from "./core/elementalEvents";
+import * as Collection from './core/collection.js';
+import * as Events from './core/events.js';
+import * as toolkit from './core/toolkit.js';
+import {default as ResponsiveControllerElemental} from './core/responsiveController.js';
+import * as elementalEvents from "./core/elementalEvents.js";
 
 let elementalDataTag = 'data-elemental';
 

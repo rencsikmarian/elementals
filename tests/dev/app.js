@@ -1,8 +1,8 @@
-import {ElementalManager, Install} from "../../index";
-import {default as dispatchingTest} from "./dispatchingTest";
-import {default as responsiveTest} from "./responsiveTest";
-import {default as multipleTest1} from "./multipleTest1";
-import {default as multipleTest2} from "./multipleTest2";
+import {ElementalManager, Install} from "../../index.js";
+import {default as dispatchingTest} from "./dispatchingTest.js";
+import {default as responsiveTest} from "./responsiveTest.js";
+import {default as multipleTest1} from "./multipleTest1.js";
+import {default as multipleTest2} from "./multipleTest2.js";
 
 ElementalManager.initElementals({
     "dispatchingTest": dispatchingTest,

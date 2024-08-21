@@ -1,5 +1,5 @@
-import * as Events from './events';
-import * as viewports from './viewports';
+import * as Events from './events.js';
+import * as viewports from './viewports.js';
 
 let viewport;
 

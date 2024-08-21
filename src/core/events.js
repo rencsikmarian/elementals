@@ -73,7 +73,6 @@ export function unsubscribeAll(clientId) {
  * @param toPublish
  */
 export function publish(subject, event, toPublish) {
-    console.log("Event Publish: ", subject, event, toPublish);
     subscriptionList.forEach(function(item) {
         item.subject === subject && item.event === event && item.callback(toPublish);
     })
